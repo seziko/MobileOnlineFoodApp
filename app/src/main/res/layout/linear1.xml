@@ -13,35 +13,49 @@
         android:background="@color/grey"
         android:orientation="vertical"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+
+        <Button
+            android:id="@+id/firstButton"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="6"
+            app:layout_constraintHeight_percent="0.40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.50"
+            android:background="@color/darkred">
+
+        </Button>
+
+        <Button
+            android:id="@+id/secondButton"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/yellow"
+            app:layout_constraintHeight_percent="0.20"
+            app:layout_constraintStart_toEndOf="@id/firstButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.50">
+
+        </Button>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/mint"
+            app:layout_constraintHeight_percent="0.20"
+            app:layout_constraintStart_toStartOf="@id/secondButton"
+            app:layout_constraintTop_toTopOf="@id/secondButton"
+            app:layout_constraintTop_toBottomOf="@id/secondButton"
+            app:layout_constraintStart_toEndOf="@id/secondButton"
+
+
             >
-            <Button
-                android:id="@+id/firstButton"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.50"
-                app:layout_constraintHeight_percent="0.40"
-                >
 
-            </Button>
-           <Button
-                android:id="@+id/secondButton"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintStart_toEndOf="@id/firstButton"
-                app:layout_constraintTop_toTopOf="parent"
-               app:layout_constraintWidth_percent="0.50"
-               app:layout_constraintHeight_percent="0.20"
-               android:background="@color/yellow"
-                >
-
-            </Button>
-            <!--<Button
+        </Button>
+        <!--<Button
                 android:id="@+id/firstButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,6 +87,6 @@
             </Button>
             -->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

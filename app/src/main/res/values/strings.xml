@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MobileOnlineFoodApp</string>
+    <string name="btn_foods">Yemekler</string>
+    <string name="btn_previusorders">Önceki \n  Siparişler</string>
+    <string name="orders_btn">Sipariş \n Durumu</string>
+    <string name="btn_grs">Giriş/Çıkış</string>
 </resources>

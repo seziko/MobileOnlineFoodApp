@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/kampanya"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3.5"
+        android:background="@drawable/text_slide"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/arranger"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.5"
+        >
+
+        <Button
+            android:id="@+id/mealbtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_meal"
+            app:layout_constraintHeight_percent="0.60"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintStart_toStartOf="@id/arranger"
+            app:layout_constraintTop_toTopOf="@id/arranger"
+            android:layout_marginBottom="12dp"
+            android:text="@string/btn_foods"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textAlignment="gravity"
+            android:drawablePadding="-30dp"
+            android:drawableStart="@drawable/restaurant"
+            android:paddingStart="10dp"
+            android:onClick="showMealMenu"
+            />
+
+        <Button
+            android:id="@+id/previusordersbtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mealbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintWidth_percent="0.45"
+            android:background="@drawable/btn_prevorders"
+            android:text="@string/btn_previusorders"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/ordersbtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="@id/arranger"
+            app:layout_constraintTop_toTopOf="@id/arranger"
+            app:layout_constraintWidth_percent="0.55"
+            app:layout_constraintHeight_percent="0.25"
+            android:background="@drawable/btn_orders"
+            android:text="@string/orders_btn"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_login"
+            app:layout_constraintEnd_toEndOf="@id/arranger"
+            app:layout_constraintBottom_toBottomOf="@id/arranger"
+            app:layout_constraintHeight_percent="0.75"
+            app:layout_constraintWidth_percent="0.55"
+            android:text="@string/btn_grs"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textAllCaps="false"
+            />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
