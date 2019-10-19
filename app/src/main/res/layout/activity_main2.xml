@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -60,18 +61,17 @@
 
         <Button
             android:id="@+id/ordersbtn"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="@id/arranger"
-            app:layout_constraintTop_toTopOf="@id/arranger"
-            app:layout_constraintWidth_percent="0.55"
-            app:layout_constraintHeight_percent="0.25"
+            android:layout_width="220dp"
+            android:layout_height="122dp"
             android:background="@drawable/btn_orders"
             android:text="@string/orders_btn"
+            android:textAllCaps="false"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textAllCaps="false"
-            />
+            app:layout_constraintEnd_toEndOf="@id/arranger"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintTop_toTopOf="@id/arranger"
+            app:layout_constraintWidth_percent="0.55" />
 
         <Button
             android:id="@+id/loginbtn"
@@ -80,7 +80,7 @@
             android:background="@drawable/btn_login"
             app:layout_constraintEnd_toEndOf="@id/arranger"
             app:layout_constraintBottom_toBottomOf="@id/arranger"
-            app:layout_constraintHeight_percent="0.75"
+            app:layout_constraintHeight_percent="0.65"
             app:layout_constraintWidth_percent="0.55"
             android:text="@string/btn_grs"
             android:textColor="@android:color/black"
