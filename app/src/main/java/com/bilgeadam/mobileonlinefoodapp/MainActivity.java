@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,22 +17,29 @@ import android.widget.ListView;
 import com.bilgeadam.mobileonlinefoodapp.activity.MealMenuActivity;
 import com.bilgeadam.mobileonlinefoodapp.adapter.MealListRecyclerAdapter;
 import com.bilgeadam.mobileonlinefoodapp.adapter.MealListViewAdapter;
-import com.bilgeadam.mobileonlinefoodapp.data.Meal;
 import com.bilgeadam.mobileonlinefoodapp.dto.JwtTokenRequest;
 import com.bilgeadam.mobileonlinefoodapp.dto.JwtTokenResponse;
+import com.bilgeadam.mobileonlinefoodapp.dto.Meal;
 import com.bilgeadam.mobileonlinefoodapp.services.AuthenticationService;
+import com.bilgeadam.mobileonlinefoodapp.services.MealDataService;
 import com.bilgeadam.mobileonlinefoodapp.utility.RetrofitClient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
+import me.relex.circleindicator.CircleIndicator;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImagePagerAdapter imagePagerAdapter;
+    private ViewPager viewPager;
+    private CircleIndicator circleIndicator;
 
 
     @Override
@@ -43,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
         /*final ListView mealListView = findViewById(R.id.meallistview);
         mealListView.setAdapter(new MealListViewAdapter(this,meals));*/
+        authenticate();
+        configureSlider();
 
+        private void configureSlider(){
+
+        }
 
     }
 
@@ -77,5 +90,21 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    private void getMeals(){
+        MealDataService mealDataService = RetrofitClient.getRetrofitInstance(this).create(MealDataService.class);
+        mealDataService.getMeals().enqueue(new Callback<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>>() {
+            @Override
+            public void onResponse(Call<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> call, Response<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> response) {
+                mealListRecyclerAdapter.setmMealList(response.body());
+                mealListRecyclerAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<Meal>> call, Throwable t) {
+
+            }
+        });
     }
 }
