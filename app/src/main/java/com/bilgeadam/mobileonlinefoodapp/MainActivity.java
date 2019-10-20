@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.ListView;
 
 import com.bilgeadam.mobileonlinefoodapp.activity.MealMenuActivity;
+import com.bilgeadam.mobileonlinefoodapp.adapter.ImagePagerAdapter;
 import com.bilgeadam.mobileonlinefoodapp.adapter.MealListRecyclerAdapter;
 import com.bilgeadam.mobileonlinefoodapp.adapter.MealListViewAdapter;
 import com.bilgeadam.mobileonlinefoodapp.dto.JwtTokenRequest;
@@ -23,6 +24,7 @@ import com.bilgeadam.mobileonlinefoodapp.dto.Meal;
 import com.bilgeadam.mobileonlinefoodapp.services.AuthenticationService;
 import com.bilgeadam.mobileonlinefoodapp.services.MealDataService;
 import com.bilgeadam.mobileonlinefoodapp.utility.RetrofitClient;
+import com.bilgeadam.mobileonlinefoodapp.utility.UpUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -54,9 +56,17 @@ public class MainActivity extends AppCompatActivity {
         authenticate();
         configureSlider();
 
-        private void configureSlider(){
 
-        }
+
+    }
+
+    private void configureSlider(){
+        viewPager = findViewById(R.id.image_pager);
+        imagePagerAdapter = new ImagePagerAdapter(this);
+        viewPager.setAdapter(imagePagerAdapter);
+        UpUtils.automaticSlide(viewPager,imagePagerAdapter);
+        circleIndicator = findViewById(R.id.circle);
+        circleIndicator.setViewPager(viewPager);
 
     }
 
@@ -79,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                             JwtTokenResponse jwtTokenResponse = new ObjectMapper().readValue(responseString, JwtTokenResponse.class);
                             SharedPreferences sharedPref = getSharedPreferences("BILGEADAMPREF", Context.MODE_PRIVATE);
                             sharedPref.edit().putString("TOKEN", jwtTokenResponse.getToken()).apply();
-                            ;
+                            getMeals();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -97,8 +107,9 @@ public class MainActivity extends AppCompatActivity {
         mealDataService.getMeals().enqueue(new Callback<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>>() {
             @Override
             public void onResponse(Call<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> call, Response<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> response) {
-                mealListRecyclerAdapter.setmMealList(response.body());
-                mealListRecyclerAdapter.notifyDataSetChanged();
+                imagePagerAdapter.setCampaignMealList(response.body());
+                imagePagerAdapter.notifyDataSetChanged();
+
             }
 
             @Override
