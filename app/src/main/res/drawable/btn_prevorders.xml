@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/mint2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/background3"
+
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <stroke android:color="@android:color/white"
@@ -8,3 +13,5 @@
     <solid android:color="@color/mint"/>
 
 </shape>
+    </item>
+</ripple>

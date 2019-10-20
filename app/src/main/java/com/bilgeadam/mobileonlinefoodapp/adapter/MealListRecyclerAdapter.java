@@ -11,7 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bilgeadam.mobileonlinefoodapp.R;
-import com.bilgeadam.mobileonlinefoodapp.data.Meal;
+
+import com.bilgeadam.mobileonlinefoodapp.dto.Meal;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -22,12 +23,17 @@ public class MealListRecyclerAdapter extends RecyclerView.Adapter<MealListRecycl
     private List<Meal> mMealList;
     private Context context;
 
+    /*public MealListRecyclerAdapter(List<Meal> mMealList, Context context) {
+        this.mMealList = mMealList;
+        this.context = context;
+    }*/
+
     public MealListRecyclerAdapter(List<Meal> mMealList, Context context) {
         this.mMealList = mMealList;
         this.context = context;
     }
 
-    void setmMealList(List<Meal> mMealList){
+    public void setmMealList(List<Meal> mMealList){
 
     }
 
@@ -63,8 +69,8 @@ public class MealListRecyclerAdapter extends RecyclerView.Adapter<MealListRecycl
 
         void setData(Meal meal){
             this.mealName.setText(meal.getName());
-            this.mealDescription.setText(meal.getDescription());
-            Glide.with(context).load(meal.getImage())
+            this.mealDescription.setText(meal.getDetail());
+            Glide.with(context).load(meal.getPhoto())
                     .centerCrop()
                     .into(mealImage);
         }

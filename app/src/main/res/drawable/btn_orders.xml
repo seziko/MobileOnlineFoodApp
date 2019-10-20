@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/yellow2">
+    <item android:id="@+id/background2-orders">
 
-    <stroke android:color="@android:color/white"
-        android:width="2dp"/>
-    <corners android:topRightRadius="25dip"/>
 
-    <solid android:color="@color/yellow"/>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-</shape>
+            <stroke
+                android:width="2dp"
+                android:color="@android:color/white" />
+            <corners android:topRightRadius="25dip" />
+
+            <solid android:color="@color/yellow" />
+
+        </shape>
+    </item>
+</ripple>

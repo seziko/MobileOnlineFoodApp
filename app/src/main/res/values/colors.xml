@@ -5,10 +5,14 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="yellow">#fdff00</color>
+    <color name="yellow2">#9DA202</color>
     <color name="grey">#b8b8b8</color>
     <color name="mint">#008755</color>
+    <color name="mint2">#0CC57B</color>
     <color name="cloudblue">#03A9F4</color>
+    <color name="cloudblue2">#0978AF</color>
     <color name="darkred">#b82c2c</color>
+    <color name="darkred2">#F14444</color>
 
 
 
