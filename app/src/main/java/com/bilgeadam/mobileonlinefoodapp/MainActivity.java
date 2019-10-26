@@ -109,7 +109,28 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> call, Response<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> response) {
                 imagePagerAdapter.setCampaignMealList(response.body());
                 imagePagerAdapter.notifyDataSetChanged();
+                circleIndicator = findViewById(R.id.circle);
+                circleIndicator.setViewPager(viewPager);
+            }
 
+            @Override
+            public void onFailure(Call<List<Meal>> call, Throwable t) {
+
+            }
+
+        });
+
+    }
+    private void getCampaign(){
+        MealDataService mealDataService = RetrofitClient.getRetrofitInstance(this).create(MealDataService.class);
+        mealDataService.getCampaign().enqueue(new Callback<List<Meal>>() {
+            @Override
+            public void onResponse(Call<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> call,
+                                   Response<List<com.bilgeadam.mobileonlinefoodapp.dto.Meal>> response) {
+                imagePagerAdapter.setCampaignMealList(response.body());
+                imagePagerAdapter.notifyDataSetChanged();
+                circleIndicator = findViewById(R.id.circle);
+                circleIndicator.setViewPager(viewPager);
             }
 
             @Override
